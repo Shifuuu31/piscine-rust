@@ -1,26 +1,24 @@
 use std::io;
 
 fn main() {
-    let riddle: &'static str =
-        "I am the beginning of the end, and the end of time and space. I am essential to creation, and I surround every place. What am I?";
-    let answer: &'static str = "a";
-
-    let mut trials: i32 = 0;
-
+    let riddle: String = String::from(
+        "I am the beginning of the end, and the end of time and space. I am essential to creation, and I surround every place. What am I?"
+    );
+    let answer: String = String::from("The letter e");
+    let mut trials: u8 = 0;
     loop {
         println!("{riddle}");
-
         let mut input: String = String::new();
-
-        io::stdin().read_line(&mut input).expect("read_line failed to read suer input");
-
+        
+        io::stdin().read_line(&mut input).expect("failed to read user input");
         trials += 1;
-
-        if input.trim() == answer.to_string() {
+        
+        if input.trim() == answer {
             println!("Number of trials: {trials}");
             return;
         }
     }
+
 }
 
 #[cfg(test)]
